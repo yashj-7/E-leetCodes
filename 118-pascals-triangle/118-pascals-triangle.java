@@ -14,9 +14,9 @@ class Solution {
                     if(j==1 || j==i){
                         list.add(1);
                     }else{
-                        List<Integer> list1 = new ArrayList<Integer>();
-                        list1 = listM.get(i-2);
-                        list.add(list1.get(j-2)+list1.get(j-1));
+                        // List<Integer> list1 = new ArrayList<Integer>();
+                        // list1 = listM.get(i-2);
+                        list.add(listM.get(i-2).get(j-2)+listM.get(i-2).get(j-1));
                     }
                     j--;
                 }
