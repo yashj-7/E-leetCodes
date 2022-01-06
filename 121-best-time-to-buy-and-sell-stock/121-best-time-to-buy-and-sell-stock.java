@@ -12,7 +12,6 @@ class Solution {
                 }
             }
         }
-        //System.out.println(minimal);
         return profit;
     }
 }
