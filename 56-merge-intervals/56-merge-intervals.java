@@ -9,9 +9,6 @@ class Solution {
                 int higher = Math.max(pair[1],intervals[i][1]);
                 pair[1] = higher; 
             }else{
-                // ArrayList<Integer> list1 = new ArrayList<Integer>();
-                // list1.add(pair[0]);
-                // list1.add(pair[1]);
                 list.add(pair);
                 pair = intervals[i];
             }
