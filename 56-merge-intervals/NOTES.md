@@ -1,1 +1,1 @@
-​
+first sort the array and then traverse linearly and store in another data structure
