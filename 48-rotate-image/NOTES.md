@@ -1,0 +1,1 @@
+solution : - transpose the matrix and then every row of the matrix.
