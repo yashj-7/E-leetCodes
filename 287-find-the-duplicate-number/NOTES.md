@@ -1,0 +1,2 @@
+use linkedList cycle and then floyd's algo
+floyd's algo: take 2 pointer slow and fast , move slow at a speed of 1 and fast at a speed of 2 until fast ==slow, then take another slow at 0 index and move it and earlier slow 1 1 block till both are equal
