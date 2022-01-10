@@ -15,7 +15,6 @@ class Solution {
              return true;
          }
         }
-        System.out.println(temp);
         for(int i=0;i<matrix[temp].length;i++){
             if(matrix[temp][i]==target){
                 return true;
