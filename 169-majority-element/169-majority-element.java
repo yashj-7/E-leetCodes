@@ -1,31 +1,20 @@
-import java.util.*;
 class Solution {
     public int majorityElement(int[] nums) {
-        int i=0;
-        int j=0;
-        Hashtable<Integer,Integer> ht1 = new Hashtable<>();
-        Arrays.sort(nums);
-        while(i<nums.length && j<nums.length){
-            if(j==nums.length-1 && nums[j]==nums[i]){
-                ht1.put(nums[i],j-i+1);
-             }
-            if(nums[i]!=nums[j]){
-                ht1.put(nums[i],(j-i));
-                i=j;
+     Arrays.sort(nums);
+        int count = 0;
+        for(int i=0;i<nums.length;i++){
+            if(count>=Math.ceil(nums.length/2)){
+                return nums[i];
+            }
+            if(i==0){
+                count++;
+            }else if(nums[i]==nums[i-1]){
+                count++;
             }else{
-                j++;
+                count=1;
             }
             
         }
-        int max = ht1.get(nums[0]);
-        int maxElement = nums[0];
-        for(int x=0;x<nums.length;x=x+ht1.get(nums[x])){
-            if(ht1.get(nums[x])>max){
-                maxElement = nums[x];
-                max = ht1.get(nums[x]);
-            }
-        }
-        
-        return maxElement;
+        return nums[0];
     }
 }
