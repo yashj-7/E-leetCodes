@@ -8,7 +8,6 @@ class Solution {
                 hm.put(nums[i],1);
             }
         }
-        System.out.print(hm);
         int c = (int)nums.length/2;
         for(int i=0;i<nums.length;i++){
             if(hm.get(nums[i])>c){
