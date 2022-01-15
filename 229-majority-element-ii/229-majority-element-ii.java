@@ -14,7 +14,6 @@ class Solution {
                 list.add(nums[i]);
             }
         }
-        System.out.println(hm);
         return list;
     }
 }
