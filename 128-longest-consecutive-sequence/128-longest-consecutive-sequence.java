@@ -4,7 +4,6 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             hs.add(nums[i]);
         }
-        System.out.println(hs);
         int count = 1;
         int max_count = 0;
         for(int i=0;i<nums.length;i++){
