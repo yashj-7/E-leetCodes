@@ -10,29 +10,14 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        int c = 1;
-        int aim = 0;
-        ListNode temp = new ListNode();
-        temp = head;
-        while(temp.next!=null){
-            c++;
-            temp = temp.next;
+        ListNode slow = new ListNode();
+        ListNode fast = new ListNode();
+        slow = head;
+        fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        if(c%2==0){
-            aim = c/2+1;
-        }else{
-            aim = (int)Math.ceil(c/2.0);
-        }
-        c=1;
-        temp = head;
-        while(temp!=null){
-            if(c==aim){
-                return temp;
-            }else{
-                temp = temp.next;
-                c++;
-            }
-        }
-        return head;
+        return slow;
     }
 }
