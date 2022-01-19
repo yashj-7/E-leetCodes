@@ -47,7 +47,6 @@ class Solution {
                 }
               
             }
-        System.out.print(l1.val);
         if(t1==null && t2!=null){
             l1.next = t2;
             l1=l1.next;
