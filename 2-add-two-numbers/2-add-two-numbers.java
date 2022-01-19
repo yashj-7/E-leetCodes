@@ -6,7 +6,6 @@ class Solution {
         ListNode start = l1;
         int carry = 0;
         while(t1!=null && t2!=null){
-            //System.out.println(t1.val+t2.val);
             if(t1.val+t2.val+carry < 10){
                 //System.out.println(carry);
                 l1.val = carry+t1.val+t2.val;
