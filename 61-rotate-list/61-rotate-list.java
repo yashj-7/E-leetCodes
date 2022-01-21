@@ -38,8 +38,8 @@ class Solution {
             temp = temp.next;
             i++;
         }
-        ListNode res = temp.next;
+        head = temp.next;
         temp.next = null;
-        return res;
+        return head;
     }
 }
