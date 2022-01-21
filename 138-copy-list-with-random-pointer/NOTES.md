@@ -1,0 +1,1 @@
+create a new nodes in the midddle of already present nodes . after that store point their randoms to those nodes and then separate those nodes. !
