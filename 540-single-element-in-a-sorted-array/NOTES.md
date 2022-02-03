@@ -1,1 +1,1 @@
-​
+if there are pairs till mid then if mid is even then next number will be at prev index, else if mid is odd the next number will be at next index. but if the pattern had been broken before that is a single element has appeared before than this pattern of odd even should have been broken by then .
