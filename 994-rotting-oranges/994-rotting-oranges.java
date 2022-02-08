@@ -14,14 +14,12 @@ class Solution {
         }
         int min = 0;
         int flag = q.size();
-       // System.out.println(flag);
-       // System.out.print(q.peek()[1]);
         while(q.isEmpty()==false){
             ArrayList<int[]> list = new ArrayList();
             while(!q.isEmpty()){
                 list.add(q.remove());
             }
-            //System.out.println("list size is "+list.size());
+           
             for(int i=0;i<list.size();i++){
                 int x = list.get(i)[0];
                 int y = list.get(i)[1];
@@ -46,7 +44,7 @@ class Solution {
                     flag++;
                 }
                  
-                //System.out.println(min);
+               
             }
             if(q.isEmpty()==false){
                     min++;
