@@ -27,9 +27,9 @@ class Solution {
                 }
             }
         }
-        while(s.isEmpty()==false){
-            arr[s.pop().index]=0;
-        }
+        // while(s.isEmpty()==false){
+        //     arr[s.pop().index]=0;
+        // }
         return arr;
     }
 }
