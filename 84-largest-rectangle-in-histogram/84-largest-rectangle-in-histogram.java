@@ -34,10 +34,7 @@ class Solution {
                 arr1[i]=arr1[i-1];
                 s.push(new Pair(heights[i],i));
             }
-        }
-        //  for(int i=0;i<arr1.length;i++){
-        //     System.out.print(arr1[i]+" ");
-        // }   
+        }  
         s.clear();
         arr2[heights.length-1] = heights.length;
         s.push(new Pair(heights[heights.length-1],heights.length-1));
@@ -64,28 +61,9 @@ class Solution {
                 s.push(new Pair(heights[j],j));
             }
         }
-        System.out.println();
-        // for(int i=0;i<arr2.length;i++){
-        //     System.out.print(arr2[i]+" ");
-        // } 
         int max = 0;
         for(int i=0;i<heights.length;i++){
-//             if(arr1[i]==-1 && arr2[i]>-1){
-//                 if(i==0){
-//                     max = Math.max(max,(i+arr2[i])*heights[i]);
-//                 }else{
-//                     max = Math.max(max,(i+arr2[i]-1)*heights[i]);
-//                 }
-                
-//             }else if(arr1[i]>-1 && arr2[i]==-1){
-//                 max = Math.max(max,((i-arr1[i])+heights.length-1-i)*heights[i]);
-//             }else if(arr1[i]==-1 && arr2[i]==-1){
-//                 max = Math.max(max,heights[i]*heights.length);
-//             }else if(arr1[i]>-1 && arr2[i]>-1){
-//                 max = Math.max(max, (arr2[i]-arr1[i]-1)*heights[i]);
-//             }
             max = Math.max(max,(arr2[i]-arr1[i]-1)*heights[i]);
-            //System.out.println(max);
         }
         return max;
     }
