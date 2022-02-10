@@ -1,1 +1,1 @@
-​
+apply both nearest smallest element to left and nearest smallest element to right
