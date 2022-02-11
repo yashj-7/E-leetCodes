@@ -1,0 +1,1 @@
+convert the 2D matrix into 1D matrix and then the question boils down to the maximum area rectangle in histogram question .
