@@ -1,1 +1,1 @@
-​
+the answer will be collective sum of water collected on top of each building, the water collected at top of each building will be the minimum out of greatest buildings on its left and right.
