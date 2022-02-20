@@ -2,14 +2,6 @@ class Solution {
     public int compareVersion(String version1, String version2) {
        String[] v1 = version1.split("[.]");
         String[] v2 = version2.split("[.]");
-        //System.out.print(v1.length);
-        for(int i=0;i<v1.length;i++){
-            System.out.print(v1[i]+" ");
-        }
-        System.out.println();
-        for(int i=0;i<v2.length;i++){
-            System.out.print(v2[i]+" ");
-        }
         int i =0;
         int j=0;
         while(i<v1.length && j<v2.length){
