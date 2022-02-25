@@ -56,8 +56,6 @@ class Solution {
                 map.put(temp.col,m);
             }
         }
-        System.out.println(map);
-        
         while(map.size()>0){
             int key = map.firstKey();
             TreeMap<Integer,PriorityQueue<Integer>> mp = new TreeMap<>();
