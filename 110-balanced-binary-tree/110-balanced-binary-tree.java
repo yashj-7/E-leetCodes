@@ -27,7 +27,6 @@ class Solution {
         int d1 = findDepth(root.left,ans);
         int d2 = findDepth(root.right,ans);
         if(Math.abs(d1-d2)>1){
-            //System.out.print(root.val);
             ans[0] = false;
         }
         return 1+Math.max(d1,d2);
