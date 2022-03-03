@@ -15,23 +15,21 @@
  */
 class Solution {
     public TreeNode bstFromPreorder(int[] preorder) {
-        int[] inorder = preorder.clone();
-        Arrays.sort(inorder);
-        return solve(0,0,inorder.length-1,preorder,inorder);
+        return solve(0,preorder.length-1,preorder);
     }
-    public TreeNode solve(int prestart,int instart,int inend, int[] preorder,int[] inorder){
-        if(prestart>preorder.length-1 || instart>inend){
+    public TreeNode solve(int start,int end,int[] preorder){
+        if(start>end){
             return null;
         }
-        TreeNode root = new TreeNode(preorder[prestart]);
-        int index = 0;
-        for(int i=0;i<inorder.length;i++){
-            if(inorder[i]==root.val){
-                index = i;
+        TreeNode root = new TreeNode(preorder[start]);
+        int i;
+        for(i=start;i<=end;i++){
+            if(preorder[i]>root.val){
+                break;
             }
         }
-        root.left = solve(prestart+1,instart,index-1,preorder,inorder);
-        root.right = solve(prestart+index-instart+1,index+1,inend,preorder,inorder);
+        root.left = solve(start+1,i-1,preorder);
+        root.right = solve(i,end,preorder);
         return root;
     }
 }
