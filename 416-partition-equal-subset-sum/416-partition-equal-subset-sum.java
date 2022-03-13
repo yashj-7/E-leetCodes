@@ -7,29 +7,30 @@ class Solution {
         if(sum%2!=0){
             return false;
         }
-        int[][] t = new int[nums.length+1][(sum/2)+1];
-        for(int i=0;i<nums.length+1;i++){
-            for(int j=0;j<(sum/2)+1;j++){
-                t[i][j] = -1;
-            }
-        }
-        int ans = solve(nums,sum/2,nums.length,t);
-        System.out.print(ans);
+        int ans = solve(nums,sum/2,nums.length);
         if(ans==sum/2){
             return true;
         }
         return false;
     }
-    public int solve(int[] nums,int sum,int n,int[][] t){
-        if(n==0 || sum==0){
-            return 0;
+    public int solve(int[] nums,int sum,int n){
+        int t[][] = new int[n+1][sum+1];
+        for(int i=0;i<n+1;i++){
+            for(int j=0;j<sum+1;j++){
+                if(i==0 || j==0){
+                    t[i][j] = 0;
+                }
+            }
         }
-        if(nums[n-1]>sum){
-            return t[n][sum] = solve(nums,sum,n-1,t);
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<sum+1;j++){
+              if(nums[i-1]>j){
+                  t[i][j] = t[i-1][j];
+              }else{
+                  t[i][j] = Math.max(nums[i-1]+t[i-1][j-nums[i-1]],t[i-1][j]);
+              }  
+            }   
         }
-        if(t[n][sum]!=-1){
-            return t[n][sum];
-        }
-        return t[n][sum] = Math.max(nums[n-1]+solve(nums,sum-nums[n-1],n-1,t),solve(nums,sum,n-1,t));
+        return t[n][sum];
     }
 }
