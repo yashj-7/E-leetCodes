@@ -24,21 +24,4 @@ class Solution {
         }
         return dp[coins.length][amount];
     }
-    public int solve(int[] coins,int amount,int index,int[][] dp){
-        if(amount<0){
-            return 0;
-        }
-        if(amount==0){
-            return 1;
-        }
-        if(index<0){ 
-            return 0;
-        }
-        if(dp[index][amount]!=-1){
-            return dp[index][amount];
-        }
-        int pick = solve(coins,amount-coins[index],index,dp);
-        int notpick = solve(coins,amount,index-1,dp);
-        return dp[index][amount] = pick+notpick;
-    }
 }
