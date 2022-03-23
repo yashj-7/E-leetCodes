@@ -1,1 +1,1 @@
-​
+the question is an extension of lcs. reversing the string and finding longest common subsequence of both the string will give you the desired answer .
