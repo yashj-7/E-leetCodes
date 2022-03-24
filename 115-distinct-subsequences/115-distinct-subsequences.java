@@ -1,5 +1,8 @@
 class Solution {
     public int numDistinct(String s, String t) {
+        
+        //tabulation:-
+        
         int[][] dp = new int[s.length()+1][t.length()+1];
         for(int i=0;i<dp[0].length;i++){
             dp[0][i] = 0;
@@ -19,6 +22,9 @@ class Solution {
         return dp[s.length()][t.length()];
     }
     public static int solve(String s, String t,int ind1,int ind2,int[][] dp){
+        
+        //recursive:-- 
+        
         if(ind2<0){
             return 1;
         }
