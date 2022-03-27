@@ -19,21 +19,8 @@ class Solution {
         }
         
         int min = Integer.MAX_VALUE;
+        //check if both left is palindrome or not, cozif left isnt palindrome, there is no need to make any cut as we need both sides to be a palindrome
         for(int k=i;k<=j-1;k++){
-            // int temp1 =0;
-            // int temp2 = 0;
-            // if(dp[i][k]!=-1){
-            //     temp1 = dp[i][k];
-            // }else{
-            //     temp1 = solve(s,i,k,dp);
-            //     dp[i][k]=temp1;
-            // }
-            // if(dp[k+1][j]!=-1){
-            //     temp2 = dp[k+1][j];
-            // }else{
-            //     temp2 = solve(s,k+1,j,dp);
-            //     dp[k+1][j] = temp2;
-            // }
             if(isPalindrome(s, i, k)){
             int partitions = 1+solve(s, k+1, j,dp);
             min = Math.min(min, partitions);                
