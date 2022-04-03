@@ -1,1 +1,1 @@
-​
+think greedily by purchasing only if the price of the stock increases on the next day and add the profit to your max profit.
