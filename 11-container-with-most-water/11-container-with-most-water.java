@@ -3,8 +3,8 @@ class Solution {
         int i=0;
         int j=height.length-1;
         int cap = 0;
-        int move=1;
-        while(i<j && move!=0){
+        // int move=1;
+        while(i<j ){
             if((j-i)*Math.min(height[i],height[j])>=cap){
                 cap = (j-i)*Math.min(height[i],height[j]);
             }
