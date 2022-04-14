@@ -32,45 +32,46 @@ class GFG{
 class Solution{
     static int equalPartition(int N, int arr[])
     {
-    
-    int sum =0;
+        
+        int sum = 0;
         for(int i=0;i<N;i++){
-            sum = sum+arr[i];
+            sum = sum +arr[i];
+        }
+        int dp[][] = new int[N][sum/2+1];
+        for(int i=0;i<N;i++){
+            Arrays.fill(dp[i],-1);
         }
         if(sum%2!=0){
             return 0;
         }
-        int s = sum/2;
-        int[][] dp = new int[N+1][s+1];
-        for(int i=0;i<N+1;i++){
-            Arrays.fill(dp[i],-1);
+        int x = solve(arr,0,sum/2,dp);
+        if(x!=0){
+            return 1;
         }
-        return solve(arr.length-1,arr,s,dp)==true?1:0;
-        
+        return 0;
     }
-    public static boolean solve(int N,int[] arr,int sum,int[][] dp){
-        if(N==0){
-            if(arr[N]==sum){
-                return true;
+    public static int solve(int[] arr, int i,int sum,int[][] dp){
+        if(sum==0){
+            return 1;
+        }
+        if(i==arr.length-1){
+            if(arr[i]==sum){
+                return 1;
+            }else{
+                return 0;
             }
-            return false;
         }
-        if(dp[N][sum]!=-1){
-            return dp[N][sum]==0?false:true;
+        if(dp[i][sum]!=-1){
+            return dp[i][sum];
         }
-        boolean t1 = false;
-        boolean t2 = false;
-        if(arr[N]<=sum){
-            t1 = solve(N-1,arr,sum-arr[N],dp);
-            t2 = solve(N-1,arr,sum,dp);
+        int t1 = 0;
+        int t2 = 0;
+        if(arr[i]<=sum){
+            t1 = solve(arr,i+1,sum-arr[i],dp);
+            t2 = solve(arr,i+1,sum,dp);
         }else{
-            t2 = solve(N-1,arr,sum,dp);
+            t2 = solve(arr,i+1,sum,dp);
         }
-        if(t1||t2==true){
-            dp[N][sum]=1;
-        }else{
-            dp[N][sum] = 0;
-        }
-        return t1||t2;
+        return dp[i][sum]=t1+t2;
     }
 }
