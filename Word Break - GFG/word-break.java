@@ -36,36 +36,39 @@ class Sol
     {
         int[] dp = new int[A.length()];
         Arrays.fill(dp,-1);
-        boolean x = solve(A,0,B,"",dp);
-        return x==true?1:0;
+        boolean x = solve(A,"",B,0,dp);
+        if(x){
+            return 1;
+        }
+        return 0;
     }
-    
-    public static boolean solve(String s,int i,List<String> wordDict,String temp,int[] dp){
-        if(wordDict.contains(temp)){
+    public static boolean solve(String s,String temp,ArrayList<String> list,int i,int[] dp){
+        if(list.contains(temp)){
             return true;
         }
         if(i==s.length()){
             return true;
         }
         if(dp[i]!=-1){
-            return dp[i]==1?true:false;
+            if(dp[i]==1){
+                return true;
+            }
+            return false;
         }
         boolean t1 = false;
         for(int j=i;j<s.length();j++){
-            temp = temp+Character.toString(s.charAt(j));
-            if(wordDict.contains(temp)==true){
-                if(solve(s,j+1,wordDict,"",dp)==true){
-                    return true;
+            temp=temp+Character.toString(s.charAt(j));
+            if(list.contains(temp)){
+                if(solve(s,"",list,j+1,dp)==true){
+                    t1= true;
                 }
             }
         }
         if(t1==true){
-            dp[i] = 1;
-            
+            dp[i]=1;
         }else{
-            dp[i] = 0;
+            dp[i]=0;
         }
-        return false;
+        return t1;
     }
-    
 }
