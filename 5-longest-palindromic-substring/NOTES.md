@@ -1,1 +1,1 @@
-this can be done by tabulation method. the starting is considered from top to bottom and ending is from left to right. the main diagonal will contain elements with length 1 and those will be palindrome for sure. the diagonals above will contain strings of length 2 ,3 and so on . Now for a string to be palindromic , last and first characters must be same and the string between the last and the first character must be a palindrome too .
+​
