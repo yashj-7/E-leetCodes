@@ -40,7 +40,12 @@ class GfG {
     }
 }// } Driver Code Ends
 
-public class Com implements Comparator<Job>{
+
+class Solution
+{
+    //Function to find the maximum profit and the number of jobs done.
+    
+    public class Com implements Comparator<Job>{
     public int compare(Job a, Job b){
         if(a.profit>b.profit){
             return -1;
@@ -52,46 +57,39 @@ public class Com implements Comparator<Job>{
         
     }
 }
-class Solution
-{
-    //Function to find the maximum profit and the number of jobs done.
+    
     int[] JobScheduling(Job arr[], int n)
     {
         Arrays.sort(arr,new Com());
         // for(int i=0;i<arr.length;i++){
         //     System.out.print(arr[i].profit+" ");
         // }
-        int maxD= 0;
-        for(int i=0;i<n;i++){
-            if(arr[i].deadline > maxD){
-                maxD = arr[i].deadline;
+        int[] flag = new int[101];
+        Arrays.fill(flag,-1);
+        //System.out.println();
+        //int time = 0;
+        int profit = 0;
+        int count = 0;
+        for(int i=0;i<arr.length;i++){
+            if(flag[arr[i].deadline]==-1){
+                count++;
+                profit = profit+arr[i].profit;
+                flag[arr[i].deadline] = 1;
+            }else{
+                int j =arr[i].deadline;
+                while(flag[j]!=-1){
+                    j--;
+                }
+                if(j>0){
+                    count++;
+                    profit=profit+arr[i].profit;
+                    flag[j] = 1;
+                }
             }
         }
-        int[] dead = new int[maxD];
-        Arrays.fill(dead,-1);
-        int max = 0;
-        int count = 0;
-        for(int i=0;i<n;i++){
-           if(dead[arr[i].deadline-1]==-1){
-               max = max+arr[i].profit;
-               count++;
-               dead[arr[i].deadline-1] = 1;
-           } else{
-               while(dead[arr[i].deadline-1]!=-1 && arr[i].deadline-1 !=0){
-                   arr[i].deadline--;
-               }
-               if(dead[arr[i].deadline-1]==-1){
-                  max = max+arr[i].profit;
-                  count++;
-                  dead[arr[i].deadline-1] = 1; 
-               }
-           }
-        }
-        // System.out.println(count);
-        // System.out.println(max);
-        int[] arrr = new int[2];
-        arrr[0]=count;
-        arrr[1]=max;
-        return arrr;
+        int[] ans = new int[2];
+        ans[0] = count;
+        ans[1] = profit;
+        return ans;
     }
 }
