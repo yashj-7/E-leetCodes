@@ -27,6 +27,9 @@ class Solution
 {
     public int findWinner(int N,int X,int Y)
     {
+        
+        //the dp[i-X] or dp[i-1] or dp[i-Y] shows that if you choose 1 X or Y coins at this tage then who chose the coin at i-1 or i-X or i-Yth stage.
+        
         boolean[] dp = new boolean[N+1];
         dp[0] = false;
         dp[1] = true;
