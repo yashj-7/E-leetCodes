@@ -17,7 +17,6 @@ class Solution {
             }
         }
         List<List<String>> ans = new ArrayList<>();
-        //System.out.print(hm);
         
         for(int i=0;i<strs.length;i++){
             char[] c = strs[i].toCharArray();
