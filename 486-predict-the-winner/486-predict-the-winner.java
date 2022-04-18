@@ -24,7 +24,6 @@ class Solution {
         }
         int player1 = dp[0][nums.length-1];
         int player2 = sum-player1;
-        System.out.print(player1);
         if(player2>player1){
             return false;
         }
