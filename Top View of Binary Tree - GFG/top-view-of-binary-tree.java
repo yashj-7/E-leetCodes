@@ -126,50 +126,37 @@ class Node{
 class Solution
 {
     static class Triplet{
-        int col;
-        int row;
-        Node n;
-        Triplet(int col,int row,Node n){
-            this.col = col;
-            this.row = row;
-            this.n = n;
-        }
-    }
+          int col;
+          int row;
+          Node n;
+          Triplet(int col,int row,Node n){
+              this.col = col;
+              this.row = row;
+              this.n = n;
+          }
+      }
     static ArrayList<Integer> topView(Node root)
     {
         ArrayList<Integer> list = new ArrayList<>();
-        TreeMap<Integer,TreeMap<Integer,Integer>> map = new TreeMap<>();
+        TreeMap<Integer,Integer> map =new TreeMap<>();
         Queue<Triplet> q = new LinkedList<>();
         q.offer(new Triplet(0,0,root));
-        
-        // TreeMap<Integer,ArrayList<Integer>> mxp = new TreeMap<>();
-        // ArrayList<Integer> x = new ArrayList<>();
-        // x.add(root.data);
-        // mxp.put(0,x);
-        // map.put(0,mxp);
-        
         while(q.isEmpty()==false){
-            Triplet temp = q.poll();
+            Triplet temp =q.poll();
             if(temp.n.left!=null){
                 q.offer(new Triplet(temp.col-1,temp.row+1,temp.n.left));
             }
             if(temp.n.right!=null){
-                q.offer(new Triplet(temp.col+1,temp.row+1,temp.n.right));
+                 q.offer(new Triplet(temp.col+1,temp.row+1,temp.n.right));
             }
-            
             if(map.containsKey(temp.col)==false){
-                    TreeMap<Integer,Integer> mp = new TreeMap<>();
-                    mp.put(temp.row,temp.n.data);
-                    map.put(temp.col,mp);
-                }
-            
+                map.put(temp.col,temp.n.data);
+            }
         }
-         //System.out.print(map);
-        while(map.size()>0){
-            int key = map.firstKey();
-            int k = map.get(key).firstKey();
-            list.add(map.get(key).get(k));
-            map.remove(key);
+        while(map.isEmpty()==false){
+            int k = map.firstKey();
+            list.add(map.get(k));
+            map.remove(k);
         }
         return list;
     }
