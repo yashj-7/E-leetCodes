@@ -122,11 +122,12 @@ class Solution {
     int dupSub(Node root) {
         HashMap<String,Integer> hm = new HashMap<>();
         solve(root,hm);
+        //being used for iterating over map
         for (Map.Entry<String, Integer> m : hm.entrySet()) {
-    if (m.getValue() > 1) {
-        return 1;
-    }
-}
+            if (m.getValue() > 1) {
+                return 1;
+            }
+        }
         return 0;
     }
     public static String solve(Node root,HashMap<String,Integer> hm){
