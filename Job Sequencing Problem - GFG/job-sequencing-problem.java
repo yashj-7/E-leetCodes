@@ -43,47 +43,43 @@ class GfG {
 
 class Solution
 {
-    //Function to find the maximum profit and the number of jobs done.
-    
-    public class Com implements Comparator<Job>{
-    public int compare(Job a, Job b){
-        if(a.profit>b.profit){
-            return -1;
-        }else if(a.profit == b.profit){
-            return 0;
-        }else {
-            return 1;
+    class ManualComp implements Comparator<Job>{
+        public int compare(Job j1,Job j2){
+            if(j1.profit==j2.profit){
+               return 0;
+            }else if(j1.profit>j2.profit){
+                return -1;
+            }else{
+                return 1;
+            }
         }
-        
     }
-}
-    
     int[] JobScheduling(Job arr[], int n)
     {
-        Arrays.sort(arr,new Com());
+        Arrays.sort(arr,new ManualComp());
         // for(int i=0;i<arr.length;i++){
         //     System.out.print(arr[i].profit+" ");
         // }
-        int[] flag = new int[101];
+        int[] flag =new int[101];
         Arrays.fill(flag,-1);
-        //System.out.println();
-        //int time = 0;
-        int profit = 0;
+        int time = 0;
         int count = 0;
+        int profit = 0;
         for(int i=0;i<arr.length;i++){
-            if(flag[arr[i].deadline]==-1){
+            Job j = arr[i];
+            if(flag[j.deadline]==-1){
+                flag[j.deadline]=1;
                 count++;
-                profit = profit+arr[i].profit;
-                flag[arr[i].deadline] = 1;
+                profit+=j.profit;
             }else{
-                int j =arr[i].deadline;
-                while(flag[j]!=-1){
-                    j--;
+                int x = j.deadline;
+                while(flag[x]!=-1){
+                    x--;
                 }
-                if(j>0){
+                if(x>0){
                     count++;
-                    profit=profit+arr[i].profit;
-                    flag[j] = 1;
+                    flag[x]=1;
+                    profit+=j.profit;
                 }
             }
         }
@@ -93,3 +89,14 @@ class Solution
         return ans;
     }
 }
+
+/*
+class Job {
+    int id, profit, deadline;
+    Job(int x, int y, int z){
+        this.id = x;
+        this.deadline = y;
+        this.profit = z; 
+    }
+}
+*/
