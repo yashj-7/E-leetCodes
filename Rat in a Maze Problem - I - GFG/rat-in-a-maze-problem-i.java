@@ -34,57 +34,45 @@ class Rat {
 // m is the given matrix and n is the order of matrix
 class Solution {
     public static ArrayList<String> findPath(int[][] m, int n) {
-        ArrayList<String> list = new ArrayList<String>();
-        boolean[][] x = new boolean[n][n];
+        ArrayList<String> list = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        boolean[][] b = new boolean[n][n];
+        for(int i=0;i<n;i++){
+            Arrays.fill(b[i],false);
+        }
         if(m[0][0]==0){
-            list.add("-1");
             return list;
         }
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                x[i][j]=true;
-            }
-        }
-        String ans = "";
-        solve(list,ans,0,0,x,m);
+        solution(list,m,0,0,sb,b);
         return list;
     }
-    public static void solve(List<String> list, String ans, int row, int col, boolean[][] n, int[][] m){
-       if(row==n.length-1 && col==n[0].length-1){
-           list.add(new String(ans));
-           return;
-       }
-       //downward
-       if(row+1<n.length && n[row+1][col]==true && m[row+1][col]==1){
-           n[row][col]=false;
-           String t1 = new String(ans);
-           t1 = t1+"D";
-           solve(list,t1,row+1,col,n,m);
-           n[row][col]=true;
-       }
-       //right
-       if(col+1<n[0].length && n[row][col+1]==true && m[row][col+1]==1){
-           n[row][col]=false;
-           String t2 = new String(ans);
-           t2 = t2+"R";
-           solve(list,t2,row,col+1,n,m);
-           n[row][col]=true;
-       }
-       //left
-       if(col-1>=0 && n[row][col-1]==true && m[row][col-1]==1){
-           n[row][col]=false;
-           String t3 = new String(ans);
-           t3 = t3+"L";
-           solve(list,t3,row,col-1,n,m);
-           n[row][col]=true;
-       }
-       //up
-       if(row-1>=0 && n[row-1][col]==true && m[row-1][col]==1){
-           n[row][col]=false;
-           String t4 = new String(ans);
-           t4 = t4+"U";
-           solve(list,t4,row-1,col,n,m);
-           n[row][col]=true;
-       }
+    public static void solution(ArrayList<String> list , int[][] m , int i , int j,StringBuilder ans,boolean[][] b){
+        
+        if(i==m.length-1 && j==m.length-1){
+            list.add(ans.toString());
+            return;
+        }
+        b[i][j] = true;
+        if(i+1<m.length && m[i+1][j]==1 && b[i+1][j]==false){
+            ans.append("D");
+            solution(list,m,i+1,j,ans,b);
+            ans.delete(ans.length()-1,ans.length());
+        }
+        if(j+1<m.length && m[i][j+1]==1 && b[i][j+1]==false){
+            ans.append("R");
+            solution(list,m,i,j+1,ans,b);
+            ans.delete(ans.length()-1,ans.length());
+        }
+        if(i-1>=0 && m[i-1][j]==1 && b[i-1][j]==false){
+            ans.append("U");
+            solution(list,m,i-1,j,ans,b);
+            ans.delete(ans.length()-1,ans.length());
+        }
+        if(j-1>=0 && m[i][j-1]==1 && b[i][j-1]==false){
+            ans.append("L");
+            solution(list,m,i,j-1,ans,b);
+            ans.delete(ans.length()-1,ans.length());
+        }
+        b[i][j]=false;
     }
 }
