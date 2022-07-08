@@ -90,7 +90,7 @@ class Solution
             curr = next;
             count++;
         }
-        if(next!=null){
+        if(curr!=null){
             node.next = reverse(next,k);
         }
         return prev;
