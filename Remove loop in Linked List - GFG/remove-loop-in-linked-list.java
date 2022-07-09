@@ -107,20 +107,20 @@ class Solution
 {
     //Function to remove a loop in the linked list.
     public static void removeLoop(Node head){
-        Node slow = head;
-        Node fast = head;
-        boolean con = false;
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
-            if(slow==fast){
-                con = true;
-                break;
-            }
-        }
-        if(con==false){
-            return;
-        }
+        // Node slow = head;
+        // Node fast = head;
+        // boolean con = false;
+        // while(fast!=null && fast.next!=null){
+        //     slow = slow.next;
+        //     fast = fast.next.next;
+        //     if(slow==fast){
+        //         con = true;
+        //         break;
+        //     }
+        // }
+        // if(con==false){
+        //     return;
+        // }
         // while(fast.next!=slow){
         //     fast = fast.next;
         // }
@@ -128,10 +128,7 @@ class Solution
         // //slow.next = null;
         HashSet<Node> set = new HashSet<>();
         Node start = head;
-        while(true){
-            if(set.contains(start.next)){
-                break;
-            }
+        while(start.next != null && set.contains(start.next)==false){
             set.add(start);
             start = start.next;
         }
