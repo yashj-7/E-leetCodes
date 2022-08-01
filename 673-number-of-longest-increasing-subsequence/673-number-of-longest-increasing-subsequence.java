@@ -24,11 +24,6 @@ class Solution {
         }
         int ans = 0;
         for(int i=0;i<count.length;i++){
-            System.out.print(dp[i]+" ");
-        }
-        System.out.println();
-        for(int i=0;i<count.length;i++){
-            System.out.print(count[i]+" ");
             if(dp[i]==mx){
                 ans += count[i];
             }
