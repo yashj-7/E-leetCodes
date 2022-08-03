@@ -6,11 +6,12 @@ class Solution {
         if(nums[l]<nums[r]){
             return nums[l];
         }
+        if(nums.length==1){
+            return nums[0];
+        }
         while(l<=r){
             int mid = l+(r-l)/2;
-            int next = (mid+1)%nums.length;
-            int prev = (mid+nums.length-1)%nums.length;
-            if(nums[mid]<=nums[next] && nums[mid]<=nums[prev]){
+            if(mid>0 && nums[mid]<nums[mid-1]){
                 return nums[mid];
             }else if(nums[mid]>=nums[l] && nums[mid]>nums[r]){
                 l=mid+1;
