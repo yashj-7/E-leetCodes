@@ -15,6 +15,7 @@ class Solution {
             for(int j=i-1;j>=0;j--){
                 if(nums[j]<nums[i]){
                     dp[i] = Math.max(dp[i],dp[j]+1);
+                    
                 }
             }
         }
