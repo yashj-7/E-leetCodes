@@ -41,19 +41,4 @@ class Solution {
        boolean t2 = preorder(root.right,subRoot.right);
         return t1 && t2;
     }
-    
-    public static TreeNode getNode(TreeNode root,TreeNode subRoot){
-        if(root==null){
-            return null;
-        }
-        if(root.val == subRoot.val){
-            return root;
-        }
-        TreeNode n1 = getNode(root.left,subRoot);
-        TreeNode n2 = getNode(root.right,subRoot);
-        if(n1!=null){
-            return n1;
-        }
-        return n2;
-    }
 }
