@@ -14,7 +14,6 @@ class Solution {
         hm.put(s.charAt(0),hm.get(s.charAt(0))-1);
         hs.add(s.charAt(0));
         for(int i=1;i<s.length();i++){
-            //System.out.println(stack+" "+hs);
             if(stack.peek()<s.charAt(i) && hs.contains(s.charAt(i))==false){
                 stack.push(s.charAt(i));
                 hm.put(s.charAt(i),hm.get(s.charAt(i))-1);
