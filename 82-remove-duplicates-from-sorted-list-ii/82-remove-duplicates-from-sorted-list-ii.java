@@ -26,9 +26,6 @@ class Solution {
                 while(t2!=null && t2.val==data){
                     t2=t2.next;
                 }
-//                 if(t2==null){
-                    
-//                 }
                 t1.next=t2;
             }else{
                 t1=t1.next;
