@@ -46,7 +46,6 @@ class Solution {
         int ans = count;
         int res=0;
         for(int i=0;i<p.length;i++){
-            System.out.println(p[i].num);
             if(ans<=count/2){
                 break;
             }
