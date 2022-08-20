@@ -16,12 +16,6 @@ class Solution {
         }
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-               System.out.print(board[i][j]+" ");
-            }
-            System.out.println();
-        }
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
                 if(board[i][j]=='*'){
                     board[i][j] = 'O';
                 }else if(board[i][j]=='O'){
