@@ -3,7 +3,7 @@ class Solution {
         if(num<10 && num%2==0){
             return true;
         }
-       for(int i=1;i<num;i++){
+       for(int i=num/2;i<num;i++){
            int x = reverse(i);
            if(x+i==num){
                return true;
