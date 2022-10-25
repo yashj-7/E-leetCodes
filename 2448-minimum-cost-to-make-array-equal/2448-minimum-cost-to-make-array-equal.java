@@ -31,9 +31,6 @@ class Solution {
         }
         long medianIndex = totalSum/2;
         Arrays.sort(p,new ManComparator());
-        // for(int i=0;i<p.length;i++){
-        //     System.out.println(p[i].num);
-        // }
         long temp = 0;
         long ele = -1;
         long ele2 = -1;
