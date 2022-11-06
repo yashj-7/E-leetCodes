@@ -1,8 +1,7 @@
 # Distance of nearest cell having 1
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a binary grid of <strong>n*m</strong>. Find the distance of nearest 1 in the grid&nbsp;for each cell.<br>
-The distance is calculated as&nbsp;<strong>|i<sub>1</sub>&nbsp; i<sub>2</sub>| + |j<sub>1</sub>&nbsp; j<sub>2</sub>|</strong>, where i<sub>1</sub>, j<sub>1</sub>&nbsp;are the row number and column number of the current cell, and i<sub>2</sub>, j<sub>2</sub>&nbsp;are the row number and column number of the nearest cell having value 1.</span><br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a binary grid of <strong>n*m</strong>. Find the distance of the nearest 1 in the grid&nbsp;for each cell.<br>
+The distance is calculated as&nbsp;<strong>|i<sub>1</sub>&nbsp; - i<sub>2</sub>| + |j<sub>1</sub>&nbsp;- j<sub>2</sub>|</strong>, where i<sub>1</sub>, j<sub>1</sub>&nbsp;are the row number and column number of the current cell, and i<sub>2</sub>, j<sub>2</sub>&nbsp;are the row number and column number of the nearest cell having value 1.</span><br>
 &nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -35,7 +34,7 @@ distance of 1, 1, 1 and 2 from 1's at (0,0),
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Yout Task:</strong><br>
-You don't need to read or print anything, Your task is to complete the function&nbsp;<strong>nearest()&nbsp;</strong>which takes grid as input parameter and returns&nbsp;a matrix of same dimensions where the value at index (i, j) in the resultant matrix signifies the minimum distance of 1 in the matrix from grid[i][j].</span><br>
+You don't need to read or print anything, Your task is to complete the function&nbsp;<strong>nearest()&nbsp;</strong>which takes the grid as an input parameter and returns&nbsp;a matrix of the same dimensions where the value at index (i, j) in the resultant matrix signifies the minimum distance of 1 in the matrix from grid[i][j].</span><br>
 &nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(n*m)<br>
@@ -43,5 +42,4 @@ You don't need to read or print anything, Your task is to complete the function&
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ n, m ≤ 500</span></p>
- <p></p>
-            </div>
+</div>
