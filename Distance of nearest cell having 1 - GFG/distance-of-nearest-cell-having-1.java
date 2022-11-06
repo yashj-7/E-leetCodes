@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -30,62 +30,62 @@ class GFG
             }
         }
     }
-}// } Driver Code Ends
+}
+// } Driver Code Ends
 
 
 class Solution
 {
     //Function to find distance of nearest 1 in the grid for each cell.
+    class Pair{
+        int i;
+        int j;
+        int level;
+        Pair(int i,int j,int level){
+            this.i=i;
+            this.j=j;
+            this.level=level;
+        }
+    }
     public int[][] nearest(int[][] grid)
     {
-        int[][] ans = new int[grid.length][grid[0].length];
-        for(int i=0;i<grid.length;i++){
-            Arrays.fill(ans[i],Integer.MAX_VALUE-1);
-        }
+        int[][] mat = new int[grid.length][grid[0].length];
+        boolean[][] vis = new boolean[grid.length][grid[0].length];
+        Queue<Pair> q = new LinkedList<>();
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
                 if(grid[i][j]==1){
-                    ans[i][j]=0;
+                    mat[i][j]=0;
+                    q.offer(new Pair(i,j,0));
+                    vis[i][j] = true;
                 }
             }
         }
-        for(int i=0;i<grid.length;i++){
-            for(int j=0;j<grid[0].length;j++){
-                if(ans[i][j]!=0){
-                    if(i-1>=0){
-                        ans[i][j] = Math.min(ans[i][j],ans[i-1][j]+1);
-                    }
-                    if(j-1>=0){
-                        ans[i][j] = Math.min(ans[i][j],ans[i][j-1]+1);
-                    }
-                    if(i+1<grid.length){
-                        ans[i][j] = Math.min(ans[i][j],ans[i+1][j]+1);
-                    }
-                    if(j+1<grid[0].length){
-                        ans[i][j] = Math.min(ans[i][j],ans[i][j+1]+1);
-                    }
-                }
+        while(q.isEmpty()==false){
+            Pair p = q.poll();
+            int r = p.i;
+            int c = p.j;
+            if(r-1>=0 && vis[r-1][c]==false){
+                vis[r-1][c]=true;
+                q.offer(new Pair(r-1,c,p.level+1));
+                mat[r-1][c]=p.level+1;
+            }
+            if(r+1<grid.length && vis[r+1][c]==false){
+                vis[r+1][c]=true;
+                q.offer(new Pair(r+1,c,p.level+1));
+                mat[r+1][c]=p.level+1;
+            }
+            if(c-1>=0 && vis[r][c-1]==false){
+                vis[r][c-1]=true;
+                q.offer(new Pair(r,c-1,p.level+1));
+                mat[r][c-1]=p.level+1;
+            }
+            if(c+1<grid[0].length && vis[r][c+1]==false){
+                vis[r][c+1]=true;
+                q.offer(new Pair(r,c+1,p.level+1));
+                mat[r][c+1]=p.level+1;
             }
         }
-        
-        for(int i=grid.length-1;i>=0;i--){
-            for(int j=grid[0].length-1;j>=0;j--){
-                if(ans[i][j]!=0){
-                    if(i-1>=0){
-                        ans[i][j] = Math.min(ans[i][j],ans[i-1][j]+1);
-                    }
-                    if(j-1>=0){
-                        ans[i][j] = Math.min(ans[i][j],ans[i][j-1]+1);
-                    }
-                    if(i+1<grid.length){
-                        ans[i][j] = Math.min(ans[i][j],ans[i+1][j]+1);
-                    }
-                    if(j+1<grid[0].length){
-                        ans[i][j] = Math.min(ans[i][j],ans[i][j+1]+1);
-                    }
-                }
-            }
-        }
-        return ans;
+        return mat;
     }
 }
