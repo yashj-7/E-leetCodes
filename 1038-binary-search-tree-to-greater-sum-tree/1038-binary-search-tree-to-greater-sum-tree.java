@@ -17,7 +17,7 @@ class Solution {
     static int s = 0;
     public TreeNode bstToGst(TreeNode root) {
         int x = sum(root);
-        System.out.println(x);
+        //System.out.println(x);
         helper(root,x);
         s=0;
         return root;
