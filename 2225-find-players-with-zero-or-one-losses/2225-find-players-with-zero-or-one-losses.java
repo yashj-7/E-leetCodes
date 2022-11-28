@@ -26,8 +26,6 @@ class Solution {
                 looser.put(temp[1],list);
             }
         }
-        System.out.println(winner);
-        System.out.println(looser);
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> win = new ArrayList<>();
         List<Integer> win2 = new ArrayList<>();
